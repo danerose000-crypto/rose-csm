@@ -10,7 +10,9 @@ st.set_page_config(layout="wide")
 header_col1, header_col2 = st.columns([1, 4])
 
 with header_col1:
-    st.image("rose_logo.png", width=120)
+    logo_path = Path(__file__).parent / "rose_logo.png"
+    st.image(str(logo_path), width=120)
+
 
 with header_col2:
     st.markdown(
@@ -197,5 +199,6 @@ notes_saved = st.button("💾 Save notes")
 if notes_saved:
     st.session_state.notes[selected_customer] = note_input
     st.success(f"Notes saved for {selected_customer}")
+
 
 
